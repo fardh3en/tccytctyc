@@ -27,7 +27,7 @@ st.markdown("Automated vendor selection and negotiation assistant.")
 # --- Sidebar Inputs ---
 st.sidebar.header("Procurement Constraints")
 budget = st.sidebar.number_input(
-    "Max Budget per Unit ($)", min_value=0.0, value=100.0, step=5.0
+    "Max Budget per Unit (₹)", min_value=0.0, value=100.0, step=5.0
 )
 deadline = st.sidebar.number_input(
     "Delivery Deadline (Days)", min_value=0, value=10, step=1
@@ -57,12 +57,12 @@ if st.sidebar.button("Run Procurement Process", type="primary"):
 
     if valid_vendors:
         st.success(
-            f"✅ {len(valid_vendors)} vendors meet the criteria (Budget <= ${budget}, Deadline <= {deadline} days)."
+            f"✅ {len(valid_vendors)} vendors meet the criteria (Budget <= ₹{budget}, Deadline <= {deadline} days)."
         )
         st.table(valid_vendors)
     else:
         st.error(
-            f"❌ No vendors meet constraints: Budget ${budget}, Deadline {deadline} days."
+            f"❌ No vendors meet constraints: Budget ₹{budget}, Deadline {deadline} days."
         )
         st.stop()
 
@@ -96,7 +96,7 @@ if st.sidebar.button("Run Procurement Process", type="primary"):
 
     with col2:
         st.subheader("Deal Details")
-        st.write(f"**Price:** ${top_vendor['price_per_unit']}")
+        st.write(f"**Price:** ₹{top_vendor['price_per_unit']}")
         st.write(f"**Delivery:** {top_vendor['delivery_days']} days")
         st.write(f"**Reliability:** {top_vendor['reliability_score'] * 100}%")
 
