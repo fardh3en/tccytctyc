@@ -23,7 +23,7 @@ def main():
 
     # 1. Get User Input
     try:
-        budget = float(input("\nEnter maximum budget per unit ($): "))
+        budget = float(input("\nEnter maximum budget per unit (₹): "))
         deadline = int(input("Enter delivery deadline (days): "))
     except ValueError:
         print("Invalid input. Please enter numbers only.")
